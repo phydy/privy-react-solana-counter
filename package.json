@@ -7,7 +7,9 @@
   },
   "dependencies": {
     "@anchor-lang/core": "^0.32.1",
-    "@coral-xyz/anchor": "0.32.1"
+    "@coral-xyz/anchor": "0.32.1",
+    "@solana/spl-token": "^0.4.14",
+    "axios": "^1.13.6"
   },
   "devDependencies": {
     "@types/bn.js": "^5.1.0",

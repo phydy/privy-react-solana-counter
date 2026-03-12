@@ -9,7 +9,7 @@ import { useWallets } from '@privy-io/react-auth/solana'
 import LogOutButton from './counter/logout'
 
 function App() {
-  const {login, authenticated, user } = usePrivy();
+  const {login, authenticated } = usePrivy();
   const { wallets } = useWallets();
 
   useEffect(() => {
@@ -19,7 +19,6 @@ function App() {
   if (!authenticated) {
     return <LoginPage login={login}/>
   }
-  console.log("User: ", user?.wallet?.address);
   return (
     <>
       <div>

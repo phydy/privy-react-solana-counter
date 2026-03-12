@@ -29,6 +29,8 @@ pub struct Initialize<'info> {
  
     #[account(
         init,
+        seeds = [b"counter"],
+        bump,
         payer = payer,
         space = 8 + 8
     )]
