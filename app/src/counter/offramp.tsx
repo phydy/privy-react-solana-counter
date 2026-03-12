@@ -25,7 +25,6 @@ export async function offramp() {
     const asset_account = PublicKey.findProgramAddressSync([Buffer.from("asset_account"), asset.toBuffer()], program.programId)[0];
     const sender_token_account = getAssociatedTokenAddressSync(asset, new PublicKey(solanaWallet.address), false, TOKEN_PROGRAM_ID, ASSOCIATED_TOKEN_PROGRAM_ID);
     const asset_account_ata = getAssociatedTokenAddressSync(asset, asset_account, false, TOKEN_PROGRAM_ID, ASSOCIATED_TOKEN_PROGRAM_ID);
-    const metadata_account = PublicKey.findProgramAddressSync([Buffer.from("metadata"), asset.toBuffer()], program.programId); //metadata account derivation
 
     const encrypted_data = await axios.post("localhost:8080/api/encryption/encrypt_saf", { data: "254722705110", type: "B2C"});
     const offRampInstruction = await program.methods
@@ -37,7 +36,6 @@ export async function offramp() {
         mint: asset,
         sender_token_account: sender_token_account,
         asset_account_ata: asset_account_ata,
-        metadata_account: metadata_account,
         token_program: TOKEN_PROGRAM_ID,
         associated_token_program: ASSOCIATED_TOKEN_PROGRAM_ID,
       })
